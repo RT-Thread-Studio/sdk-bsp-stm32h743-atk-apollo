@@ -1,0 +1,88 @@
+---
+yaml_version: 3
+pkg_version: 1.0.0
+pkg_vendor: RealThread
+pkg_type: Board_Support_Packages
+board:
+  name: STM32H743-ATK-APOLLO
+  version: Rev.A
+  vendor: ATK
+  description_zh: 阿波罗 STM32H743 是正点原子推出的一款基于 ARM Cortex-M7 内核的开发板，最高主频为 480Mhz，该开发板具有丰富的板载资源，可以充分发挥 STM32H743 的芯片性能。
+  description_en: The Apollo STM32H743 is a development board based on the ARM Cortex-M7 core launched by ATK. The highest frequency is 480Mhz. The development board has rich onboard resources and can give full play to the chip performance of STM32H743.
+  small_image: documents/images/board_small.png
+  large_image: documents/images/board_large.png
+  sale_contact_cn: http://www.alientek.com/
+  sale_contact_global: http://www.alientek.com/
+  buy_url_cn: https://detail.tmall.com/item.htm?spm=a1z10.3-b.w4011-22301073509.75.67c674677xkT2X&id=609033040759&rn=9dfd9fd55df8f8910d9b52df10137122&abbucket=15
+  buy_url_global: https://detail.tmall.com/item.htm?spm=a1z10.3-b.w4011-22301073509.75.67c674677xkT2X&id=609033040759&rn=9dfd9fd55df8f8910d9b52df10137122&abbucket=15
+  price_cn: 498.00 CNY
+  price_global: 75.00 USD
+  debugger: J-Link
+  debug_interface: SWD
+  emulator_machine: ''
+chip:
+  device_vendor: STMicroelectronics
+  family_name: STM32
+  series_name: STM32H7
+  sub_series_name: STM32H743
+  chip_name: STM32H743IITx
+  rx_name: PA10
+  tx_name: PA9
+  clock_source: HSE
+  source_freq: '8000000'
+  target_freq: '480000000'
+  uart_name: UART1
+docs:
+- file: documents/manuals/RM0433.pdf
+  title: Reference manual
+  category: manual
+- file: documents/sheet/DS12110.pdf
+  title: STM32H743 Datasheet
+  category: sheet
+features:
+- "CPU: STM32H743IIT6, LQFP176, FLASH: 2MB, SRAM: 1060KB"
+- "External NAND FLASH: H27U4G8F2 or MT29F4G08, 512MB"
+- "External SDRAM: W9825G6KH (32MB)"
+- "External SPIFLASH: W25Q256 (32MB)"
+- "External EEPROM: 24C02 (256B)"
+- "LED: 2, DS0(Red, PB1), DS1(Green, PB0)"
+- "Buttons: KEY_UP(Wake-up, PIN: 0), K0(PIN: 68), K1(PIN: 67), K2(PIN: 66)"
+- "Interface: USB-Serial、SD Card、Ethernet、LCD、USB SLAVE、USB HOST"
+- "Debug: JTAG/SWD"
+features_zh:
+- CPU：STM32H743IIT6，LQFP176，FLASH：2MB，SRAM： 1060KB
+- 外扩 NAND FLASH： H27U4G8F2（或 MT29F4G08），512MB
+- 外扩 SDRAM：W9825G6KH（32MB）
+- 外扩 SPIFLASH：W25Q256（32MB）
+- 外扩 EEPROM：24C02（256B）
+- LED：2个，DS0（红色，PB1），DS1（绿色，PB0）
+- 按键，4个，KEY_UP（兼具唤醒功能，PIN：0），K0（PIN：68），K1（PIN：67），K2（PIN：66）
+- 常用接口：USB 转串口、SD 卡接口、以太网接口、LCD 接口、USB SLAVE、USB HOST
+- 调试接口：标准 JTAG/SWD
+template_projects:
+- project_name: stm32h743_atk_apollo_blink_led
+  project_description: creat this peoject if user choose rt-thread project
+  project_type: rt-thread|@full|@latest
+  builtin_files:
+  - source_path_offset: default_project_0
+    target_path_offset: ''
+    files_and_folders:
+    - "*"
+  external_files:
+  - files_and_folders:
+    - components
+    - include
+    - libcpu/arm
+    - libcpu/Kconfig
+    - libcpu/SConscript
+    - src
+    - tools
+    - Kconfig
+    - LICENSE
+    package_name: RT-Thread
+    package_type: RT-Thread_Source_Code
+    package_vendor: ''
+    package_version: latest
+    source_path_offset: rt-thread
+    target_path_offset: rt-thread
+example_projects: []
