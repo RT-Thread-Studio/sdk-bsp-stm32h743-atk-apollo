@@ -24,6 +24,5 @@
     <nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
     <nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
   </natures>
-  <name>stm32h743-atk-apollo</name>
   <linkedResources />
 </projectDescription>
