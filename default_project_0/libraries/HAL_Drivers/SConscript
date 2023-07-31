@@ -5,14 +5,16 @@ from building import *
 cwd = GetCurrentDir()
 
 # add the general drivers.
-src = Split("""
-""")
+src = []
 
 if GetDepend(['RT_USING_PIN']):
     src += ['drv_gpio.c']
 
 if GetDepend(['RT_USING_SERIAL']):
-    src += ['drv_usart.c']
+    if GetDepend(['RT_USING_SERIAL_V2']):
+        src += ['drv_usart_v2.c']
+    else:
+        src += ['drv_usart.c']
 
 if GetDepend(['RT_USING_HWTIMER']):
     src += ['drv_hwtimer.c']
@@ -25,6 +27,9 @@ if GetDepend(['RT_USING_SPI']):
 
 if GetDepend(['RT_USING_QSPI']):
     src += ['drv_qspi.c']
+
+if GetDepend('RT_USING_SPI_BITOPS'):
+    src += ['drv_soft_spi.c']
 
 if GetDepend(['RT_USING_I2C', 'RT_USING_I2C_BITOPS']):
     if GetDepend('BSP_USING_I2C1') or GetDepend('BSP_USING_I2C2') or GetDepend('BSP_USING_I2C3') or GetDepend('BSP_USING_I2C4'):
@@ -81,6 +86,9 @@ if GetDepend(['BSP_USING_ON_CHIP_FLASH', 'SOC_SERIES_STM32L4']):
 
 if GetDepend(['BSP_USING_ON_CHIP_FLASH', 'SOC_SERIES_STM32H7']):
     src += ['drv_flash/drv_flash_h7.c']
+
+if GetDepend(['BSP_USING_ON_CHIP_FLASH', 'SOC_SERIES_STM32WB']):
+    src += ['drv_flash/drv_flash_wb.c']
 
 if GetDepend('RT_USING_HWCRYPTO'):
     src += ['drv_crypto.c']
