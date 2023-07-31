@@ -88,8 +88,6 @@ static rt_uint8_t stm32_adc_get_resolution(struct rt_adc_device *device)
             return 10;
         case ADC_RESOLUTION_8B:
             return 8;
-        case ADC_RESOLUTION_6B:
-            return 6;
         default:
             return 0;
     }
